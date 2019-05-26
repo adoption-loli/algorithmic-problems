@@ -1,27 +1,10 @@
-#include<stdio.h>
-
-int main()
-{
-    int nums[20] = {0,0,1,1,1,2,2,3,3,4};
-    int i = 0, j = 0, flag = 0, k = 1;
-    for(i = 1;i < 10; i++)
-    {
-        for(j = 0; j < k; j++)
+int removeDuplicates(int* nums, int numsSize){
+        int i = 0, j = 0;
+        if(numsSize == 0) return 0;
+        for(;j < numsSize;j++)
         {
-            if(nums[j] == nums[i])
-            {
-                flag = 1;
-                break;
-            }
+            if(nums[i] != nums[j])
+                nums[++i] = nums[j];
         }
-        if(flag == 1)
-        {
-            flag = 0;
-        }
-        else
-        {
-            nums[k++] = nums[i];
-        }
-    }
-    return 0;
+        return i+1;
 }
